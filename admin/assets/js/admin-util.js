@@ -1,0 +1,2 @@
+export function badge(kind, value) { const b = document.createElement('span'); b.className = `badge badge--${value}`; b.textContent = value.replace('_', ' '); b.title = kind; return b; }
+export const sydneyTime = (iso) => (iso ? new Intl.DateTimeFormat('en-AU', { timeZone: 'Australia/Sydney', weekday: 'short', day: 'numeric', month: 'short', hour: 'numeric', minute: '2-digit', hour12: true }).format(new Date(iso)) : '—');

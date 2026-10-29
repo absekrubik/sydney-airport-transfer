@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en-AU">
+<head>
+  <meta charset="utf-8">
+  <link rel="icon" type="image/png" href="../public/assets/images/brand/icon-64.png">
+  <link rel="apple-touch-icon" href="../public/assets/images/brand/icon-192.png">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="robots" content="noindex, nofollow">
+  <title>Bookings | Sydney Airport Transfers Admin</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Barlow+Condensed:ital,wght@0,600;0,700;0,800;1,700;1,800&display=swap" rel="stylesheet">
+  <!-- Dev paths: Stage 3 serves public/assets at /assets, so these become /assets/... then. -->
+  <link rel="stylesheet" href="../public/assets/css/tokens.css?v=16">
+  <link rel="stylesheet" href="../public/assets/css/base.css?v=16">
+  <link rel="stylesheet" href="../public/assets/css/components.css?v=16">
+  <link rel="stylesheet" href="assets/css/admin.css?v=16">
+</head>
+<body class="admin">
+  <div class="admin-shell">
+    <aside class="sidebar" id="sidebar" aria-label="Admin navigation">
+      <a class="logo" href="dashboard.html" aria-label="Sydney Airport Transfers home"><img class="logo__mark" src="../public/assets/images/brand/logo-mark.png" alt="" width="85" height="44"><span class="logo__text"><b>Sydney</b><small>Airport Transfers</small></span></a>
+      <nav><a href="dashboard.html"><svg class="icon" aria-hidden="true"><use href="../public/assets/icons/sprite.svg#layout-dashboard"/></svg> Dashboard</a><a href="bookings.html" aria-current="page"><svg class="icon" aria-hidden="true"><use href="../public/assets/icons/sprite.svg#clipboard-list"/></svg> Bookings</a><a href="customers.html"><svg class="icon" aria-hidden="true"><use href="../public/assets/icons/sprite.svg#users"/></svg> Customers</a><a href="messages.html"><svg class="icon" aria-hidden="true"><use href="../public/assets/icons/sprite.svg#mail"/></svg> Messages</a><a href="drivers.html"><svg class="icon" aria-hidden="true"><use href="../public/assets/icons/sprite.svg#id-card"/></svg> Drivers</a><a href="vehicles.html"><svg class="icon" aria-hidden="true"><use href="../public/assets/icons/sprite.svg#car"/></svg> Vehicles</a><a href="pricing.html"><svg class="icon" aria-hidden="true"><use href="../public/assets/icons/sprite.svg#tag"/></svg> Pricing</a><a href="payments.html"><svg class="icon" aria-hidden="true"><use href="../public/assets/icons/sprite.svg#credit-card"/></svg> Payments</a><a href="promotions.html"><svg class="icon" aria-hidden="true"><use href="../public/assets/icons/sprite.svg#percent"/></svg> Promotions</a><a href="reports.html"><svg class="icon" aria-hidden="true"><use href="../public/assets/icons/sprite.svg#bar-chart"/></svg> Reports</a><a href="settings.html"><svg class="icon" aria-hidden="true"><use href="../public/assets/icons/sprite.svg#sliders"/></svg> Settings</a></nav>
+    </aside>
+    <div class="scrim"></div>
+    <div>
+      <header class="topbar">
+        <button class="icon-btn menu-btn" type="button" data-menu-btn aria-label="Open navigation" aria-expanded="false" aria-controls="sidebar"><svg class="icon" aria-hidden="true"><use href="../public/assets/icons/sprite.svg#menu"/></svg></button>
+        <div class="topbar__search">
+          <svg class="icon" aria-hidden="true"><use href="../public/assets/icons/sprite.svg#search"/></svg>
+          <label class="visually-hidden" for="global-search">Search bookings</label>
+          <input class="input" id="global-search" type="search" placeholder="Search bookings, customers">
+        </div>
+        <button class="icon-btn" type="button" aria-label="Notifications"><svg class="icon" aria-hidden="true"><use href="../public/assets/icons/sprite.svg#bell"/></svg><span class="dot"></span></button>
+        <div class="profile">
+          <button class="icon-btn" type="button" data-profile-btn aria-haspopup="true" aria-expanded="false" aria-label="Profile menu"><svg class="icon" aria-hidden="true"><use href="../public/assets/icons/sprite.svg#user"/></svg></button>
+          <div class="profile-menu" role="menu">
+            <a href="settings.html" role="menuitem">Settings</a>
+            <span class="profile-menu__who" id="whoami"></span>
+            <button type="button" role="menuitem" data-logout>Sign out</button>
+          </div>
+        </div>
+      </header>
+      <main class="content" id="main">
+        <div class="page-head"><h1>Bookings</h1></div>
+        <div class="toolbar">
+          <label class="visually-hidden" for="f-q">Search</label>
+          <input class="input" id="f-q" type="search" placeholder="Reference, name, email or phone" maxlength="100">
+          <label class="visually-hidden" for="f-status">Status</label>
+          <select class="select" id="f-status"><option value="">All statuses</option><option value="pending">Pending</option><option value="confirmed">Confirmed</option><option value="completed">Completed</option><option value="cancelled">Cancelled</option><option value="declined">Declined</option></select>
+        </div>
+        <div class="table-wrap">
+          <table class="data">
+            <thead><tr><th>Reference</th><th>Customer</th><th>Pickup time</th><th>Route</th><th>Vehicle</th><th>Total</th><th>Status</th><th>Payment</th></tr></thead>
+            <tbody id="booking-rows"><tr><td colspan="8">Loading…</td></tr></tbody>
+          </table>
+        </div>
+        <div class="toolbar" style="margin-top:var(--sp-4)">
+          <button class="btn btn--ghost btn--sm" type="button" id="prev">Previous</button>
+          <span class="text-muted" id="page-info"></span>
+          <button class="btn btn--ghost btn--sm" type="button" id="more">Next</button>
+        </div>
+        <dialog id="detail" aria-labelledby="detail-title"><div style="padding:var(--sp-5)">
+          <h2 id="detail-title">Booking</h2><div id="detail-body"></div>
+          <p style="margin-top:var(--sp-4)"><button class="btn btn--ghost btn--sm" type="button" id="detail-close">Close</button></p>
+        </div></dialog>
+      </main>
+    </div>
+  </div>
+  <script type="module" src="assets/js/bookings.js"></script>
+</body>
+</html>

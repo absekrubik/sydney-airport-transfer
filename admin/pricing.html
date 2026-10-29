@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en-AU">
+<head>
+  <meta charset="utf-8">
+  <link rel="icon" type="image/png" href="../public/assets/images/brand/icon-64.png">
+  <link rel="apple-touch-icon" href="../public/assets/images/brand/icon-192.png">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="robots" content="noindex, nofollow">
+  <title>Pricing | Sydney Airport Transfers Admin</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Barlow+Condensed:ital,wght@0,600;0,700;0,800;1,700;1,800&display=swap" rel="stylesheet">
+  <!-- Dev paths: Stage 3 serves public/assets at /assets, so these become /assets/... then. -->
+  <link rel="stylesheet" href="../public/assets/css/tokens.css?v=16">
+  <link rel="stylesheet" href="../public/assets/css/base.css?v=16">
+  <link rel="stylesheet" href="../public/assets/css/components.css?v=16">
+  <link rel="stylesheet" href="assets/css/admin.css?v=16">
+</head>
+<body class="admin">
+  <div class="admin-shell">
+    <aside class="sidebar" id="sidebar" aria-label="Admin navigation">
+      <a class="logo" href="dashboard.html" aria-label="Sydney Airport Transfers home"><img class="logo__mark" src="../public/assets/images/brand/logo-mark.png" alt="" width="85" height="44"><span class="logo__text"><b>Sydney</b><small>Airport Transfers</small></span></a>
+      <nav><a href="dashboard.html"><svg class="icon" aria-hidden="true"><use href="../public/assets/icons/sprite.svg#layout-dashboard"/></svg> Dashboard</a><a href="bookings.html"><svg class="icon" aria-hidden="true"><use href="../public/assets/icons/sprite.svg#clipboard-list"/></svg> Bookings</a><a href="customers.html"><svg class="icon" aria-hidden="true"><use href="../public/assets/icons/sprite.svg#users"/></svg> Customers</a><a href="messages.html"><svg class="icon" aria-hidden="true"><use href="../public/assets/icons/sprite.svg#mail"/></svg> Messages</a><a href="drivers.html"><svg class="icon" aria-hidden="true"><use href="../public/assets/icons/sprite.svg#id-card"/></svg> Drivers</a><a href="vehicles.html"><svg class="icon" aria-hidden="true"><use href="../public/assets/icons/sprite.svg#car"/></svg> Vehicles</a><a href="pricing.html" aria-current="page"><svg class="icon" aria-hidden="true"><use href="../public/assets/icons/sprite.svg#tag"/></svg> Pricing</a><a href="payments.html"><svg class="icon" aria-hidden="true"><use href="../public/assets/icons/sprite.svg#credit-card"/></svg> Payments</a><a href="promotions.html"><svg class="icon" aria-hidden="true"><use href="../public/assets/icons/sprite.svg#percent"/></svg> Promotions</a><a href="reports.html"><svg class="icon" aria-hidden="true"><use href="../public/assets/icons/sprite.svg#bar-chart"/></svg> Reports</a><a href="settings.html"><svg class="icon" aria-hidden="true"><use href="../public/assets/icons/sprite.svg#sliders"/></svg> Settings</a></nav>
+    </aside>
+    <div class="scrim"></div>
+    <div>
+      <header class="topbar">
+        <button class="icon-btn menu-btn" type="button" data-menu-btn aria-label="Open navigation" aria-expanded="false" aria-controls="sidebar"><svg class="icon" aria-hidden="true"><use href="../public/assets/icons/sprite.svg#menu"/></svg></button>
+        <div class="topbar__search">
+          <svg class="icon" aria-hidden="true"><use href="../public/assets/icons/sprite.svg#search"/></svg>
+          <label class="visually-hidden" for="global-search">Search bookings</label>
+          <input class="input" id="global-search" type="search" placeholder="Search bookings, customers">
+        </div>
+        <button class="icon-btn" type="button" aria-label="Notifications"><svg class="icon" aria-hidden="true"><use href="../public/assets/icons/sprite.svg#bell"/></svg><span class="dot"></span></button>
+        <div class="profile">
+          <button class="icon-btn" type="button" data-profile-btn aria-haspopup="true" aria-expanded="false" aria-label="Profile menu"><svg class="icon" aria-hidden="true"><use href="../public/assets/icons/sprite.svg#user"/></svg></button>
+          <div class="profile-menu" role="menu">
+            <a href="settings.html" role="menuitem">Settings</a>
+            <span class="profile-menu__who" id="whoami"></span>
+            <button type="button" role="menuitem" data-logout>Sign out</button>
+          </div>
+        </div>
+      </header>
+      <main class="content" id="main">
+        <div class="page-head"><h1>Pricing</h1><span class="text-muted" id="p-version"></span></div>
+        <p class="alert alert--error" id="p-error" hidden></p>
+        <p class="alert alert--dev" id="p-sample" hidden>These are sample fares from setup. Replace them with your real prices before you go live.</p>
+        <section class="card" style="margin-bottom:var(--sp-5)">
+          <h2 style="font-size:1.2rem;margin:0 0 var(--sp-3)">Rules</h2>
+          <div class="rules-grid">
+            <div class="field"><label for="p-return">Return trip discount (%)</label><input class="input" id="p-return" type="number" min="0" max="100" step="1"></div>
+            <div class="field"><label for="p-seat">Child seat, each way ($)</label><input class="input" id="p-seat" type="number" min="0" max="1000" step="0.01"></div>
+            <div class="field"><label for="p-cancel">Cancellation fee after the driver is on the way (%)</label><input class="input" id="p-cancel" type="number" min="0" max="100" step="1"></div>
+          </div>
+          <p class="text-muted" style="font-size:var(--fs-sm);margin:var(--sp-3) 0 0">Cancelling is always free until the driver is marked “on the way”. All prices include GST.</p>
+        </section>
+        <section class="card" style="margin-bottom:var(--sp-5)">
+          <h2 style="font-size:1.2rem;margin:0 0 var(--sp-2)">Distance pricing</h2>
+          <p class="text-muted" style="max-width:680px;margin:0 0 var(--sp-3)">For trips that are not on a fixed route, the price is the base fee plus the price per kilometre of the real driving distance, but never less than the minimum fare. It is rounded up to a whole dollar. Fixed fares always win. Only trips within about 100 km of Sydney CBD are priced; anything else is a quote request.</p>
+          <p class="alert alert--dev" id="p-routing" hidden>Distance lookup is not connected yet, so these trips still ask for a quote. Add your free OpenRouteService key as ORS_API_KEY in the .env file (see the README).</p>
+          <label class="check" style="margin-bottom:var(--sp-3)"><input type="checkbox" id="p-dist-on"><span><strong>Price other trips by driving distance</strong></span></label>
+          <div class="table-wrap"><table class="data fares"><thead><tr><th>Vehicle</th><th>Base fee ($)</th><th>Per km ($)</th><th>Minimum fare ($)</th></tr></thead><tbody id="rate-rows"><tr><td colspan="4">Loading…</td></tr></tbody></table></div>
+          <p class="text-muted" style="font-size:var(--fs-sm);margin:var(--sp-3) 0 0">Leave a vehicle’s boxes empty to not sell distance-priced trips in it. Example: base $20 + $3.40 per km, minimum $85: a 20 km trip is $88.</p>
+        </section>
+        <section>
+          <h2 style="font-size:1.2rem;margin:0 0 var(--sp-2)">Fixed fares (one way, GST included)</h2>
+          <p class="text-muted" style="max-width:640px;margin:0 0 var(--sp-3)">The same fare applies in both directions. Leave a box empty if you do not sell a fixed fare for that route and vehicle; customers then ask for a quote.</p>
+          <div class="table-wrap"><table class="data fares"><thead><tr id="fare-head"></tr></thead><tbody id="fare-rows"><tr><td>Loading…</td></tr></tbody></table></div>
+        </section>
+        <div class="savebar"><span class="text-muted" id="save-state"></span><button class="btn btn--ghost" type="button" id="discard">Discard changes</button><button class="btn btn--primary" type="button" id="save" disabled>Save prices</button></div>
+      </main>
+    </div>
+  </div>
+  <script type="module" src="assets/js/pricing.js"></script>
+</body>
+</html>

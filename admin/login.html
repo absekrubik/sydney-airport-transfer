@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en-AU">
+<head>
+  <meta charset="utf-8">
+  <link rel="icon" type="image/png" href="../public/assets/images/brand/icon-64.png">
+  <link rel="apple-touch-icon" href="../public/assets/images/brand/icon-192.png">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="robots" content="noindex, nofollow">
+  <title>Sign in | Sydney Airport Transfers Admin</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Barlow+Condensed:ital,wght@0,600;0,700;0,800;1,700;1,800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../public/assets/css/tokens.css?v=16">
+  <link rel="stylesheet" href="../public/assets/css/base.css?v=16">
+  <link rel="stylesheet" href="../public/assets/css/components.css?v=16">
+  <link rel="stylesheet" href="assets/css/admin.css?v=16">
+</head>
+<body class="admin" style="display:grid;place-items:center;min-height:100vh;padding:1rem">
+  <main class="card" style="width:min(100%,420px);padding:var(--sp-6)">
+    <img src="../public/assets/images/brand/logo-mark.png" alt="Sydney Airport Transfers" width="240" height="124" style="display:block;width:min(70%,240px);height:auto;margin:0 auto var(--sp-2)">
+    <p style="text-align:center;margin-bottom:var(--sp-5)"><span class="logo__text" style="display:inline-flex;align-items:center"><b>Sydney</b><small>Airport Transfers</small></span></p>
+    <h1 style="font-size:2.4rem">Admin sign in</h1>
+    <p class="alert alert--error" id="login-error" role="alert" hidden></p>
+    <form class="stack" id="login-form" novalidate style="margin-top:var(--sp-4)">
+      <div class="field"><label for="email">Email</label><input class="input" id="email" type="email" autocomplete="username" required></div>
+      <div class="field"><label for="password">Password</label><input class="input" id="password" type="password" autocomplete="current-password" required></div>
+      <button class="btn btn--primary btn--block" type="submit" id="login-btn">Sign in</button>
+    </form>
+  </main>
+  <script type="module" src="assets/js/login.js"></script>
+</body>
+</html>
