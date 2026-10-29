@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en-AU">
+<head>
+  <meta charset="utf-8">
+  <link rel="icon" type="image/png" href="assets/images/brand/icon-64.png">
+  <link rel="apple-touch-icon" href="assets/images/brand/icon-192.png">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Book an Airport Transfer | Sydney Airport Transfers</title>
+  <meta name="description" content="Enter your trip, choose a vehicle and request your Sydney airport transfer in four short steps.">
+  <meta name="theme-color" content="#eaf2f9">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Barlow+Condensed:ital,wght@0,600;0,700;0,800;1,700;1,800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="assets/css/tokens.css?v=16">
+  <link rel="stylesheet" href="assets/css/base.css?v=16">
+  <link rel="stylesheet" href="assets/css/components.css?v=16">
+  <link rel="stylesheet" href="assets/css/motion.css?v=16">
+  <link rel="stylesheet" href="assets/css/pages/booking.css">
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to main content</a>
+  <!-- site-header:start -->
+  <div class="notice-bar"><div class="container notice-bar__inner">
+    <p>Free cancellation until your driver is on the way.</p>
+    <a href="tel:+61400000000" data-biz-tel><svg class="icon" aria-hidden="true"><use href="assets/icons/sprite.svg#phone"/></svg> <span>Call <span data-biz="phone">0400 000 000</span></span></a>
+  </div></div>
+  <header class="site-header">
+    <div class="container site-header__inner">
+      <a class="logo" href="index.html" aria-label="Sydney Airport Transfers home"><img class="logo__mark" src="assets/images/brand/logo-mark.png" alt="" width="85" height="44"><span class="logo__text"><b>Sydney</b><small>Airport Transfers</small></span></a>
+      <nav class="nav" aria-label="Main"><a href="index.html">Home</a><a href="services.html">Services</a><a href="vehicles.html">Vehicles</a><a href="routes.html">Routes</a><a href="about.html">About</a><a href="contact.html">Contact</a></nav>
+      <a class="btn btn--primary btn--sm" href="booking.html">Book a transfer</a>
+      <button class="nav-toggle" type="button" data-nav-toggle aria-expanded="false" aria-label="Open menu"><svg class="icon" aria-hidden="true"><use href="assets/icons/sprite.svg#menu"/></svg></button>
+    </div>
+    <nav class="mobile-nav" data-mobile-nav aria-label="Mobile"><a href="index.html">Home</a><a href="services.html">Services</a><a href="vehicles.html">Vehicles</a><a href="routes.html">Routes</a><a href="about.html">About</a><a href="contact.html">Contact</a></nav>
+  </header>
+  <!-- site-header:end -->
+
+  <main id="main">
+    <div class="container">
+      <div class="booking-head">
+        <h1>Book your transfer</h1>
+        <p class="alert alert--dev" id="dev-notice" hidden></p>
+      </div>
+      <ol class="progress" aria-label="Booking steps"><li><button type="button" class="progress__btn" data-goto="1"><span class="progress__num">1</span><span class="progress__label">Trip</span></button></li><li><button type="button" class="progress__btn" data-goto="2"><span class="progress__num">2</span><span class="progress__label">Vehicle</span></button></li><li><button type="button" class="progress__btn" data-goto="3"><span class="progress__num">3</span><span class="progress__label">Your details</span></button></li><li><button type="button" class="progress__btn" data-goto="4"><span class="progress__num">4</span><span class="progress__label">Review</span></button></li></ol>
+
+      <div class="booking-layout">
+        <form class="booking-form" id="booking-form" novalidate>
+          <!-- Honeypot: real users never see or fill this; bots often do. Checked on the server. -->
+          <input class="honeypot" type="text" name="website" tabindex="-1" autocomplete="off" aria-hidden="true">
+
+          <section class="step" data-step="1" aria-labelledby="h-1">
+            <h2 id="h-1" tabindex="-1">Where and when?</h2>
+            <div class="segmented" role="radiogroup" aria-label="Trip type" style="margin-bottom:var(--sp-5)">
+              <input type="radio" id="tt-one" name="tripType" value="one_way" checked><label for="tt-one">One way</label>
+              <input type="radio" id="tt-ret" name="tripType" value="return"><label for="tt-ret">Return</label>
+            </div>
+            <div class="route-pair">
+              <div class="field">
+                <label for="pickup">Pickup address</label>
+                <input class="input" id="pickup" name="pickup" list="locations" autocomplete="off" required>
+                <span class="field__error" aria-live="polite"></span>
+                <div class="chips" data-chips-for="pickup"><button type="button" class="chip" data-value="Sydney Airport (SYD) – Domestic Terminal">Domestic terminal</button><button type="button" class="chip" data-value="Sydney Airport (SYD) – International Terminal">International terminal</button></div>
+              </div>
+              <button class="swap" type="button" id="swap" aria-label="Swap pickup and destination"><svg class="icon" aria-hidden="true"><use href="assets/icons/sprite.svg#swap"/></svg></button>
+              <div class="field">
+                <label for="destination">Destination address</label>
+                <input class="input" id="destination" name="destination" list="locations" autocomplete="off" required>
+                <span class="field__error" aria-live="polite"></span>
+                <div class="chips" data-chips-for="destination"><button type="button" class="chip" data-value="Sydney CBD">Sydney CBD</button><button type="button" class="chip" data-value="Parramatta">Parramatta</button><button type="button" class="chip" data-value="Bondi Beach">Bondi</button><button type="button" class="chip" data-value="Manly">Manly</button></div>
+              </div>
+            </div>
+            <datalist id="locations"></datalist>
+            <p class="field__hint">Start typing a place we serve, pick a chip, or use “Set on map”.</p>
+
+            <div class="form-row" style="margin-top:var(--sp-5)">
+              <div class="field"><label for="date">Pickup date</label><input class="input" type="date" id="date" name="date" required><span class="field__error" aria-live="polite"></span>
+                <div class="chips" data-date-chips><button type="button" class="chip" data-offset="0">Today</button><button type="button" class="chip" data-offset="1">Tomorrow</button></div></div>
+              <div class="field"><label for="time">Pickup time</label><input class="input" type="time" id="time" name="time" required><span class="field__error" aria-live="polite"></span></div>
+            </div>
+            <div class="form-row" data-return-field hidden style="margin-top:var(--sp-4)">
+              <div class="field"><label for="returnDate">Return date</label><input class="input" type="date" id="returnDate" name="returnDate"><span class="field__error" aria-live="polite"></span></div>
+              <div class="field"><label for="returnTime">Return time</label><input class="input" type="time" id="returnTime" name="returnTime"><span class="field__error" aria-live="polite"></span></div>
+            </div>
+
+            <div class="form-row" style="margin-top:var(--sp-5)">
+              <div class="field"><span class="label" id="l-pax">Passengers</span><div class="stepper" data-stepper data-min="1" data-max="11" data-unit="passenger" role="group" aria-labelledby="l-pax"><button type="button" class="stepper__btn" data-dir="-1" aria-label="Fewer passengers"><svg class="icon" aria-hidden="true"><use href="assets/icons/sprite.svg#minus"/></svg></button><output class="stepper__value" aria-live="polite"></output><button type="button" class="stepper__btn" data-dir="1" aria-label="More passengers"><svg class="icon" aria-hidden="true"><use href="assets/icons/sprite.svg#plus"/></svg></button><input type="hidden" name="passengers" value="1"></div></div>
+              <div class="field"><span class="label" id="l-bag">Luggage</span><div class="stepper" data-stepper data-min="0" data-max="12" data-unit="bag" data-none="No luggage" role="group" aria-labelledby="l-bag"><button type="button" class="stepper__btn" data-dir="-1" aria-label="Fewer bags"><svg class="icon" aria-hidden="true"><use href="assets/icons/sprite.svg#minus"/></svg></button><output class="stepper__value" aria-live="polite"></output><button type="button" class="stepper__btn" data-dir="1" aria-label="More bags"><svg class="icon" aria-hidden="true"><use href="assets/icons/sprite.svg#plus"/></svg></button><input type="hidden" name="luggage" value="1"></div></div>
+              <div class="field"><span class="label" id="l-seat">Child seats</span><div class="stepper" data-stepper data-min="0" data-max="3" data-unit="seat" data-none="None" role="group" aria-labelledby="l-seat"><button type="button" class="stepper__btn" data-dir="-1" aria-label="Fewer seats"><svg class="icon" aria-hidden="true"><use href="assets/icons/sprite.svg#minus"/></svg></button><output class="stepper__value" aria-live="polite"></output><button type="button" class="stepper__btn" data-dir="1" aria-label="More seats"><svg class="icon" aria-hidden="true"><use href="assets/icons/sprite.svg#plus"/></svg></button><input type="hidden" name="childSeats" value="0"></div></div>
+            </div>
+            <div class="field" style="margin-top:var(--sp-5);max-width:320px"><label for="flight">Flight number (optional)</label><input class="input" id="flight" name="flight" maxlength="10" placeholder="e.g. QF401" autocomplete="off"><span class="field__hint">We use it to plan around delays.</span></div>
+          </section>
+
+          <section class="step" data-step="2" aria-labelledby="h-2" hidden>
+            <h2 id="h-2" tabindex="-1">Choose your vehicle</h2>
+            <p class="text-muted" id="vehicle-note"></p>
+            <div id="vehicle-options" class="vehicle-options" role="radiogroup" aria-label="Vehicle"></div>
+            <span class="field__error" id="vehicle-error" aria-live="polite"></span>
+            <div class="manual-quote" id="manual-quote" hidden>
+              <h3>This route needs a quote</h3>
+              <p>It does not have a fixed fare yet. Tell us the details and we will reply with a price.</p>
+              <a class="btn btn--primary" id="manual-quote-link" href="contact.html">Request a quote <svg class="icon" aria-hidden="true"><use href="assets/icons/sprite.svg#arrow-right"/></svg></a>
+            </div>
+          </section>
+
+          <section class="step" data-step="3" aria-labelledby="h-3" hidden>
+            <h2 id="h-3" tabindex="-1">Your details</h2>
+            <p class="text-muted">We use these details to confirm your booking and contact you about your trip. We never share them.</p>
+            <div class="form-row">
+              <div class="field"><label for="name">Full name</label><input class="input" id="name" name="name" autocomplete="name" required maxlength="100"><span class="field__error" aria-live="polite"></span></div>
+              <div class="field"><label for="phone">Mobile phone</label><input class="input" type="tel" id="phone" name="phone" autocomplete="tel" inputmode="tel" required maxlength="20" placeholder="0400 000 000"><span class="field__error" aria-live="polite"></span></div>
+            </div>
+            <div class="field" style="margin-top:var(--sp-4)"><label for="email">Email</label><input class="input" type="email" id="email" name="email" autocomplete="email" required maxlength="150"><span class="field__error" aria-live="polite"></span></div>
+            <div class="field" style="margin-top:var(--sp-4)"><label for="notes">Anything we should know? (optional)</label><textarea class="textarea" id="notes" name="notes" maxlength="500" placeholder="Meeting point, accessibility needs, extra stops"></textarea></div>
+            <div class="field" style="margin-top:var(--sp-4);max-width:320px"><label for="promo">Promo or referral code (optional)</label><input class="input" id="promo" name="promo" maxlength="30" autocomplete="off"></div>
+          </section>
+
+          <section class="step" data-step="4" aria-labelledby="h-4" hidden>
+            <h2 id="h-4" tabindex="-1">Review and request</h2>
+            <dl class="review" id="review"></dl>
+            <fieldset class="pay-options">
+              <legend class="label">How would you like to pay?</legend>
+              <label class="pay-option"><input type="radio" name="payment" value="card_online" checked><span><strong>Pay online by card</strong><small>Pay the full fare securely by card right after you book.</small></span></label>
+              <label class="pay-option"><input type="radio" name="payment" value="deposit"><span><strong>Pay a deposit online</strong><small data-deposit-text>Pay a deposit by card now and the balance to your driver.</small></span></label>
+              <label class="pay-option"><input type="radio" name="payment" value="cash_to_driver"><span><strong>Pay the driver</strong><small>Pay on the day. Nothing is charged now.</small></span></label>
+            </fieldset>
+            <div class="next-steps">
+              <h3>What happens next</h3>
+              <ol><li>You get a reference and a private link to your booking straight away. Save it.</li><li>We review your request and confirm it with you.</li><li>You can cancel for free until your driver is on the way.</li></ol>
+            </div>
+            <div class="field" id="terms-field" style="margin-top:var(--sp-5)">
+              <label class="check"><input type="checkbox" id="terms" name="terms"><span>I agree to the terms and the cancellation policy. After the driver is on the way, a percentage of the fare applies if I cancel.</span></label>
+              <span class="field__error" aria-live="polite"></span>
+            </div>
+          </section>
+
+          <div class="wizard-bar">
+            <div class="wizard-bar__total" id="bar-total" aria-live="polite"></div>
+            <button type="button" class="btn btn--ghost" id="back" hidden>Back</button>
+            <button type="button" class="btn btn--primary" id="next">Choose a vehicle <svg class="icon" aria-hidden="true"><use href="assets/icons/sprite.svg#arrow-right"/></svg></button>
+            <button type="submit" class="btn btn--primary" id="submit" hidden>Request booking</button>
+          </div>
+        </form>
+
+        <aside class="summary" aria-labelledby="sum-title">
+          <h2 id="sum-title">Your trip</h2>
+          <dl id="summary-details"></dl>
+          <div id="summary-quote" aria-live="polite"></div>
+        </aside>
+      </div>
+    </div>
+  </main>
+
+  <!-- site-footer:start -->
+  <footer class="site-footer">
+    <div class="container">
+      <div class="grid grid--4">
+        <div><a class="logo" href="index.html" aria-label="Sydney Airport Transfers home"><img class="logo__mark" src="assets/images/brand/logo-mark-dark.png" alt="" width="85" height="44"><span class="logo__text"><b>Sydney</b><small>Airport Transfers</small></span></a>
+          <p style="margin-top:var(--sp-4)">Fixed-fare airport transfers across Sydney.</p></div>
+        <div><h4>Explore</h4><a href="services.html">Services</a><a href="vehicles.html">Vehicles</a><a href="routes.html">Routes</a><a href="about.html">About</a></div>
+        <div><h4>Contact</h4><a href="tel:+61400000000" data-biz-tel data-biz="phone">0400 000 000</a><a href="mailto:hello@example.com.au" data-biz-mail data-biz="email">hello@example.com.au</a>
+          <a href="https://wa.me/61400000000" target="_blank" rel="noopener" data-biz-wa>WhatsApp us</a><a href="contact.html" data-biz="serviceArea">Sydney, NSW</a></div>
+        <div><h4>Policies</h4><a href="#">Terms and conditions</a><a href="#">Privacy policy</a><a href="#">Cancellation policy</a></div>
+      </div>
+      <div class="site-footer__bottom"><span>&copy; <span data-year></span> <span data-biz="name">Sydney Airport Transfers</span>. <span data-biz="abn">ABN to be added.</span></span><span>Social media links to be added</span></div>
+    </div>
+  </footer>
+  <a class="whatsapp-fab" data-biz-wa href="https://wa.me/61400000000?text=Hi%2C%20I%27d%20like%20to%20enquire%20about%20an%20airport%20transfer." target="_blank" rel="noopener" aria-label="Chat on WhatsApp"><svg class="icon" aria-hidden="true"><use href="assets/icons/sprite.svg#message-circle"/></svg></a>
+  <!-- site-footer:end -->
+  <script type="module" src="assets/js/pages/booking.js"></script>
+</body>
+</html>

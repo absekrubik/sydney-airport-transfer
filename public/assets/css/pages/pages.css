@@ -1,0 +1,63 @@
+/* Inner pages: services, fleet, routes, about, contact, confirmation. */
+.js-reveal [data-reveal] { opacity: 0; translate: 0 18px; transition: opacity 0.6s var(--ease), translate 0.6s var(--ease); }
+.js-reveal [data-reveal].is-in { opacity: 1; translate: 0 0; }
+
+.svc-grid { display: grid; gap: var(--sp-6); grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); }
+.svc { padding-top: var(--sp-5); border-top: 2px solid var(--ink-900); }
+.svc h3 { font: 700 1.8rem/1.15 var(--font-display); margin-bottom: var(--sp-2); }
+.svc p { color: var(--ink-500); }
+
+/* Fleet page */
+.fleet-list { display: grid; gap: var(--sp-7); }
+.fleet-row { display: grid; gap: var(--sp-5); align-items: center; padding-bottom: var(--sp-7); border-bottom: 1px solid var(--line); }
+.fleet-row:last-child { border-bottom: 0; }
+@media (min-width: 860px) { .fleet-row { grid-template-columns: 5fr 6fr; gap: var(--sp-8); } .fleet-row:nth-child(even) .fleet-row__img { order: 2; } }
+.fleet-row__img { background: #fff; border: 1px solid var(--line); border-radius: 28px; aspect-ratio: 4 / 3; display: grid; place-items: center; overflow: hidden; }
+.fleet-row__img img { width: 82%; transition: transform 0.5s var(--ease); }
+.fleet-row:hover .fleet-row__img img { transform: translateX(6%); }
+.fleet-row h2 { font-size: clamp(2rem, 4vw, 3rem); }
+.fleet-row .example { color: var(--ink-500); }
+.specs { display: flex; flex-wrap: wrap; gap: var(--sp-5); margin: var(--sp-4) 0; padding: 0; list-style: none; }
+.specs li { display: flex; align-items: center; gap: var(--sp-2); color: var(--ink-900); font-weight: 600; }
+.specs .icon { color: var(--blue-700); }
+.features { margin: 0 0 var(--sp-5); padding: 0; list-style: none; display: grid; gap: 6px; color: var(--ink-700); }
+.features li { display: flex; gap: var(--sp-2); align-items: center; }
+.features .icon { width: 18px; height: 18px; color: var(--gold-500); }
+.fare-line { color: var(--ink-500); font-size: var(--fs-sm); margin-bottom: var(--sp-4); }
+.fare-line strong { color: var(--ink-900); font: 700 1.8rem/1 var(--font-display); }
+
+/* Routes table */
+.table-scroll { overflow-x: auto; border-top: 2px solid var(--ink-900); }
+.route-table { width: 100%; border-collapse: collapse; min-width: 680px; }
+.route-table th { text-align: left; font-size: var(--fs-xs); color: var(--ink-500); font-weight: 600; padding: var(--sp-3) var(--sp-3); border-bottom: 1px solid var(--line); }
+.route-table td { padding: var(--sp-4) var(--sp-3); border-bottom: 1px solid var(--line); font-variant-numeric: tabular-nums; color: var(--ink-900); }
+.route-table td:first-child { font: 700 1.5rem/1.1 var(--font-display); }
+.route-table tbody tr:hover { background: var(--sky-50); }
+
+/* Contact */
+.contact-grid { display: grid; gap: var(--sp-7); }
+@media (min-width: 900px) { .contact-grid { grid-template-columns: 7fr 5fr; gap: var(--sp-8); } }
+.contact-form { display: grid; gap: var(--sp-4); align-content: start; }
+.contact-form .btn { justify-self: start; }
+.contact-card { background: var(--sky-50); border-radius: var(--radius-lg); padding: var(--sp-6); align-self: start; }
+.contact-card h2 { font-size: 2.2rem; }
+.contact-list { list-style: none; margin: 0 0 var(--sp-5); padding: 0; display: grid; gap: var(--sp-4); }
+.contact-list li { display: flex; gap: var(--sp-3); align-items: flex-start; }
+.contact-list .icon { color: var(--blue-700); margin-top: 3px; width: 22px; height: 22px; }
+.contact-list strong { display: block; color: var(--ink-900); font-size: var(--fs-sm); }
+.contact-list a, .contact-list span { color: var(--ink-700); }
+.honeypot { position: absolute; left: -9999px; }
+.confirm { padding-block: var(--sp-8); }
+.cta-band { background: var(--ink-900); color: #fff; padding-block: var(--sp-8); }
+.cta-band__inner { display: flex; flex-wrap: wrap; gap: var(--sp-5); align-items: center; justify-content: space-between; }
+.cta-band h2 { margin: 0; max-width: 16ch; color: #fff; }
+.cta-band .btn--primary { background: #fff; color: var(--ink-900); }
+
+/* Booking confirmation page */
+.confirm-wrap { max-width: 720px; margin-inline: auto; display: grid; gap: var(--sp-4); }
+.confirm-wrap .confirm { padding-block: var(--sp-5) 0; }
+.confirm-wrap .confirm h1 { font-size: clamp(2.6rem, 8vw, 4.4rem); margin-block: var(--sp-2); }
+.confirm-wrap .badge { margin-block: var(--sp-3); }
+
+.fleet-row__img img.is-photo { width: 100%; height: 100%; object-fit: cover; }
+.fleet-row:hover .fleet-row__img img.is-photo { transform: scale(1.04); }

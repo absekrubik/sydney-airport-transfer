@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="en-AU">
+<head>
+  <meta charset="utf-8">
+  <link rel="icon" type="image/png" href="assets/images/brand/icon-64.png">
+  <link rel="apple-touch-icon" href="assets/images/brand/icon-192.png">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Airport Transfers in Sydney | Sydney Airport Transfers</title>
+  <meta name="description" content="Fixed-fare airport transfers in Sydney with professional drivers and flight-aware pickups. Free cancellation until your driver is on the way.">
+  <meta property="og:title" content="Airport Transfers in Sydney | Sydney Airport Transfers">
+  <meta property="og:description" content="Fixed-fare airport transfers in Sydney with professional drivers and flight-aware pickups. Free cancellation until your driver is on the way.">
+  <!-- og:image needs an absolute URL in production, e.g. https://yourdomain.com.au/assets/images/og-image.png -->
+  <meta property="og:image" content="assets/images/og-image.png">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="theme-color" content="#eaf2f9">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Barlow+Condensed:ital,wght@0,600;0,700;0,800;1,700;1,800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="assets/css/tokens.css?v=16">
+  <link rel="stylesheet" href="assets/css/base.css?v=16">
+  <link rel="stylesheet" href="assets/css/components.css?v=16">
+  <link rel="stylesheet" href="assets/css/motion.css?v=16">
+  <link rel="stylesheet" href="assets/css/pages/home.css">
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to main content</a>
+  <!-- site-header:start -->
+  <div class="notice-bar"><div class="container notice-bar__inner">
+    <p>Free cancellation until your driver is on the way.</p>
+    <a href="tel:+61400000000" data-biz-tel><svg class="icon" aria-hidden="true"><use href="assets/icons/sprite.svg#phone"/></svg> <span>Call <span data-biz="phone">0400 000 000</span></span></a>
+  </div></div>
+  <header class="site-header">
+    <div class="container site-header__inner">
+      <a class="logo" href="index.html" aria-label="Sydney Airport Transfers home"><img class="logo__mark" src="assets/images/brand/logo-mark.png" alt="" width="85" height="44"><span class="logo__text"><b>Sydney</b><small>Airport Transfers</small></span></a>
+      <nav class="nav" aria-label="Main"><a href="index.html" aria-current="page">Home</a><a href="services.html">Services</a><a href="vehicles.html">Vehicles</a><a href="routes.html">Routes</a><a href="about.html">About</a><a href="contact.html">Contact</a></nav>
+      <a class="btn btn--primary btn--sm" href="booking.html">Book a transfer</a>
+      <button class="nav-toggle" type="button" data-nav-toggle aria-expanded="false" aria-label="Open menu"><svg class="icon" aria-hidden="true"><use href="assets/icons/sprite.svg#menu"/></svg></button>
+    </div>
+    <nav class="mobile-nav" data-mobile-nav aria-label="Mobile"><a href="index.html">Home</a><a href="services.html">Services</a><a href="vehicles.html">Vehicles</a><a href="routes.html">Routes</a><a href="about.html">About</a><a href="contact.html">Contact</a></nav>
+  </header>
+  <!-- site-header:end -->
+
+  <main id="main">
+    <section class="hero">
+        <div class="hero__fx" aria-hidden="true">
+          <i class="cloud"></i><i class="cloud"></i><i class="cloud"></i>
+          <svg viewBox="0 0 1200 520" preserveAspectRatio="xMidYMid slice" focusable="false">
+            <path id="flight-path" class="trail" d="M-60 330 C 220 60, 640 20, 1260 210"/>
+            <g class="plane"><animateMotion dur="11s" repeatCount="indefinite" rotate="auto" keyPoints="0;1" keyTimes="0;1" calcMode="linear"><mpath href="#flight-path"/></animateMotion>
+              <path class="plane-body" d="M-28 -4 L10 -4 L-10 -30 L0 -30 L30 -4 L52 -4 C60 -4 62 4 52 4 L30 4 L0 30 L-10 30 L10 4 L-28 4 L-34 14 L-42 14 L-36 0 L-42 -14 L-34 -14 Z" transform="scale(.5)"/></g>
+          </svg>
+        </div>
+      <div class="container">
+        <div class="hero__copy">
+          <h1>Landed.<br>Your driver is <em>already there.</em></h1>
+          <p class="hero__lead">Fixed fares between Sydney Airport and anywhere in Sydney. Cancel for free until your driver is on the way.</p>
+        </div>
+        <img class="hero__scene" src="assets/images/hero-scene-uv.svg" alt="" width="720" height="360">
+
+        <!-- The booking form is the boarding pass and the main thing on the page -->
+        <div class="pass-wrap">
+          <form class="pass" id="home-booking-form" novalidate aria-labelledby="pass-title">
+            <div class="pass__main">
+              <div class="pass__top">
+                <h2 class="pass__title" id="pass-title">Where to?</h2>
+                <div class="segmented" role="radiogroup" aria-label="Trip type">
+                  <input type="radio" id="tt-one" name="tripType" value="one_way" checked><label for="tt-one">One way</label>
+                  <input type="radio" id="tt-ret" name="tripType" value="return"><label for="tt-ret">Return</label>
+                </div>
+              </div>
+
+              <div class="pass__route">
+                <div class="field pass__place">
+                  <label for="pickup">From</label>
+                  <input class="input" id="pickup" name="pickup" list="locations" autocomplete="off" placeholder="Sydney Airport" required>
+                  <span class="field__error" aria-live="polite"></span>
+                  <div class="chips" data-chips-for="pickup"><button type="button" class="chip" data-value="Sydney Airport (SYD) – Domestic Terminal">Domestic terminal</button><button type="button" class="chip" data-value="Sydney Airport (SYD) – International Terminal">International terminal</button></div>
+                </div>
+                <button class="swap" type="button" id="swap" aria-label="Swap pickup and destination"><svg class="icon" aria-hidden="true"><use href="assets/icons/sprite.svg#swap"/></svg></button>
+                <div class="field pass__place">
+                  <label for="destination">To</label>
+                  <input class="input" id="destination" name="destination" list="locations" autocomplete="off" placeholder="Hotel or address" required>
+                  <span class="field__error" aria-live="polite"></span>
+                  <div class="chips" data-chips-for="destination"><button type="button" class="chip" data-value="Sydney CBD">Sydney CBD</button><button type="button" class="chip" data-value="Parramatta">Parramatta</button><button type="button" class="chip" data-value="Bondi Beach">Bondi</button><button type="button" class="chip" data-value="Manly">Manly</button></div>
+                </div>
+              </div>
+              <datalist id="locations"></datalist>
+
+              <div class="pass__when">
+                <div class="field">
+                  <label for="date">Pickup date</label>
+                  <input class="input" type="date" id="date" name="date" required>
+                  <span class="field__error" aria-live="polite"></span>
+                  <div class="chips" data-date-chips><button type="button" class="chip" data-offset="0">Today</button><button type="button" class="chip" data-offset="1">Tomorrow</button></div>
+                </div>
+                <div class="field"><label for="time">Pickup time</label><input class="input" type="time" id="time" name="time" required><span class="field__error" aria-live="polite"></span></div>
+                <div class="field" data-return-field hidden><label for="returnDate">Return date</label><input class="input" type="date" id="returnDate" name="returnDate"><span class="field__error" aria-live="polite"></span></div>
+                <div class="field" data-return-field hidden><label for="returnTime">Return time</label><input class="input" type="time" id="returnTime" name="returnTime"><span class="field__error" aria-live="polite"></span></div>
+              </div>
+            </div>
+
+            <div class="pass__stub">
+              <div class="field"><span class="label" id="pax-label">Passengers</span>
+                <div class="stepper" data-stepper data-min="1" data-max="11" data-unit="passenger" role="group" aria-labelledby="pax-label">
+                  <button type="button" class="stepper__btn" data-dir="-1" aria-label="Fewer passengers"><svg class="icon" aria-hidden="true"><use href="assets/icons/sprite.svg#minus"/></svg></button><output class="stepper__value" aria-live="polite"></output><button type="button" class="stepper__btn" data-dir="1" aria-label="More passengers"><svg class="icon" aria-hidden="true"><use href="assets/icons/sprite.svg#plus"/></svg></button>
+                  <input type="hidden" name="passengers" value="1"></div></div>
+              <div class="field"><span class="label" id="bag-label">Luggage</span>
+                <div class="stepper" data-stepper data-min="0" data-max="12" data-unit="bag" data-none="No luggage" role="group" aria-labelledby="bag-label">
+                  <button type="button" class="stepper__btn" data-dir="-1" aria-label="Fewer bags"><svg class="icon" aria-hidden="true"><use href="assets/icons/sprite.svg#minus"/></svg></button><output class="stepper__value" aria-live="polite"></output><button type="button" class="stepper__btn" data-dir="1" aria-label="More bags"><svg class="icon" aria-hidden="true"><use href="assets/icons/sprite.svg#plus"/></svg></button>
+                  <input type="hidden" name="luggage" value="1"></div></div>
+              <p class="pass__fare" id="fare-hint" aria-live="polite">Enter your route to see a fare.</p>
+              <button class="btn btn--primary btn--block" type="submit">See fares and vehicles <svg class="icon" aria-hidden="true"><use href="assets/icons/sprite.svg#arrow-right"/></svg></button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </section>
+
+    <div class="marquee" aria-hidden="true"><div class="marquee__track"><span>Sydney CBD</span><span>Parramatta</span><span>Bondi Beach</span><span>Manly</span><span>North Sydney</span><span>Chatswood</span><span>Darling Harbour</span><span>Circular Quay</span><span>Surry Hills</span><span>Newtown</span><span>Sydney CBD</span><span>Parramatta</span><span>Bondi Beach</span><span>Manly</span><span>North Sydney</span><span>Chatswood</span><span>Darling Harbour</span><span>Circular Quay</span><span>Surry Hills</span><span>Newtown</span></div></div>
+
+    <section class="stats" aria-label="At a glance">
+      <div class="container"><ul class="stats__grid">
+        <li><span class="stats__num" data-count="4">4</span><span class="stats__label">Vehicle classes</span><span class="stats__text">Sedan, SUV, van and luxury</span></li>
+        <li><span class="stats__num">GST</span><span class="stats__label">Included</span><span class="stats__text">One price, extras listed upfront</span></li>
+        <li><span class="stats__num">Free</span><span class="stats__label">Cancellation</span><span class="stats__text">Until your driver is on the way</span></li>
+        <li><span class="stats__num" data-count="3">3</span><span class="stats__label">Ways to pay</span><span class="stats__text">Online, deposit or to the driver</span></li>
+      </ul></div>
+    </section>
+
+    <section class="section">
+      <div class="container">
+        <div class="section__head">
+          <h2>Popular routes from Sydney Airport</h2>
+          <p id="routes-note" hidden>Sample routes and fares for development. The final list will match the client's confirmed service areas.</p>
+        </div>
+        <div class="board" id="popular-routes" role="list">
+          <div class="board__head" aria-hidden="true"><div class="board__row"><span>Route</span><span>Sedan fare, GST included</span></div></div>
+        </div>
+        <p style="margin-top:var(--sp-5)"><a class="link-arrow" href="routes.html">All routes <svg class="icon" aria-hidden="true"><use href="assets/icons/sprite.svg#arrow-right"/></svg></a></p>
+      </div>
+    </section>
+
+    <section class="section section--sky">
+      <div class="container why">
+        <div>
+          <h2>A transfer that does what it says.</h2>
+          <p>You see the fare before you book, we plan around your flight, and a real person confirms every request.</p>
+        </div>
+        <ul class="why__list">
+          <li><strong>Fixed fares</strong>The price you see includes GST, and any extras are listed before you pay.</li>
+          <li><strong>Flight aware</strong>Add your flight number and we plan around delays.</li>
+          <li><strong>Professional drivers</strong>Courteous, local drivers in clean, comfortable vehicles.</li>
+          <li><strong>Flexible changes</strong>Cancel for free until your driver is marked on the way.</li>
+        </ul>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container">
+        <div class="section__head"><h2>How it works</h2></div>
+        <div class="steps-wrap">
+        <div class="steps__track" aria-hidden="true"><span class="steps__fill"></span><span class="steps__car"><svg viewBox="0 0 70 34" fill="currentColor" aria-hidden="true"><path d="M4 22c0-4 2-6 6-7l10-8c2-1.5 4-2 7-2h14c4 0 7 1.5 10 4l6 6c5 .5 9 1.5 11 4 1 1 1 3 0 4H4z"/><circle cx="20" cy="26" r="6" fill="#1d1750"/><circle cx="52" cy="26" r="6" fill="#1d1750"/><circle cx="20" cy="26" r="2.4"/><circle cx="52" cy="26" r="2.4"/></svg></span></div>
+        <ol class="steps">
+          <li><h3>Enter your trip</h3><p>Tell us where and when. Fixed-fare routes show a price straight away.</p></li>
+          <li><h3>We confirm it</h3><p>We review your request, confirm it with you, and assign your driver.</p></li>
+          <li><h3>Ride</h3><p>Your driver meets you on time. Pay online, pay a deposit, or pay the driver.</p></li>
+        </ol>
+        </div>
+      </div>
+    </section>
+
+    <section class="section journey">
+      <div class="container journey__grid">
+        <div>
+          <h2>From touchdown to doorstep</h2>
+          <p>Your driver watches your flight, meets you on arrival and takes the direct route.</p>
+        </div>
+        <figure class="journey__frame">
+          <video id="journey-video" autoplay muted loop playsinline preload="metadata" poster="assets/video/hero-poster.jpg" aria-label="Animation of a car driving past the Sydney skyline, Opera House and Harbour Bridge while a plane comes in to land">
+            <source src="assets/video/hero-loop.webm" type="video/webm">
+            <source src="assets/video/hero-loop.mp4" type="video/mp4">
+          </video>
+          <button class="btn btn--ghost btn--sm journey__toggle" type="button" id="journey-toggle" aria-pressed="false">Pause animation</button>
+        </figure>
+      </div>
+    </section>
+
+    <section class="section section--sky">
+      <div class="container">
+        <div class="section__head"><h2>Choose your ride</h2></div>
+        <div class="fleet" id="fleet-preview"></div>
+        <p style="margin-top:var(--sp-6)"><a class="link-arrow" href="vehicles.html">See all vehicles <svg class="icon" aria-hidden="true"><use href="assets/icons/sprite.svg#arrow-right"/></svg></a></p>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container">
+        <p class="alert alert--dev" style="max-width:560px">Sample text for layout. Replace with a genuine customer review before launch.</p>
+        <blockquote class="quote"><p class="quote__text">Sample review text will go here once the first real customers have travelled with us.</p><footer>Customer name, route</footer></blockquote>
+      </div>
+    </section>
+
+    <section class="section section--sky">
+      <div class="container faq-wrap">
+        <div><h2>Questions we hear a lot</h2><p>Can't find your answer? <a href="contact.html">Ask us</a>.</p></div>
+        <div class="faq">
+          <details><summary>Can I cancel my booking?</summary><p>Yes. Cancelling is free until your driver is marked as on the way. After that, a percentage of the fare applies, and you see the exact amount before you confirm.</p></details>
+          <details><summary>How do I pay?</summary><p>Pay online by card, pay a deposit online and the balance to the driver, or pay the driver. The options available are shown on your booking.</p></details>
+          <details><summary>What if my flight is delayed?</summary><p>Add your flight number when you book so we can plan for delays. Any waiting charge is shown in your fare.</p></details>
+          <details><summary>Are fares GST-inclusive?</summary><p>Yes. Every fare includes GST, and the GST amount is shown on your quote.</p></details>
+          <details><summary>Which areas do you cover?</summary><p>We cover Sydney. If your address is outside our fixed-fare routes, you can request a quote.</p></details>
+        </div>
+      </div>
+    </section>
+
+    <section class="cta-band">
+      <div class="container cta-band__inner">
+        <h2>Know your fare in a minute.</h2>
+        <a class="btn btn--primary" href="booking.html">Book a transfer <svg class="icon" aria-hidden="true"><use href="assets/icons/sprite.svg#arrow-right"/></svg></a>
+      </div>
+      <div class="road" aria-hidden="true"><span class="road__car"><svg viewBox="0 0 70 34" fill="currentColor" aria-hidden="true"><path d="M4 22c0-4 2-6 6-7l10-8c2-1.5 4-2 7-2h14c4 0 7 1.5 10 4l6 6c5 .5 9 1.5 11 4 1 1 1 3 0 4H4z"/><circle cx="20" cy="26" r="6" fill="#1d1750"/><circle cx="52" cy="26" r="6" fill="#1d1750"/><circle cx="20" cy="26" r="2.4"/><circle cx="52" cy="26" r="2.4"/></svg></span></div>
+    </section>
+  </main>
+
+  <!-- site-footer:start -->
+  <footer class="site-footer">
+    <div class="container">
+      <div class="grid grid--4">
+        <div><a class="logo" href="index.html" aria-label="Sydney Airport Transfers home"><img class="logo__mark" src="assets/images/brand/logo-mark-dark.png" alt="" width="85" height="44"><span class="logo__text"><b>Sydney</b><small>Airport Transfers</small></span></a>
+          <p style="margin-top:var(--sp-4)">Fixed-fare airport transfers across Sydney.</p></div>
+        <div><h4>Explore</h4><a href="services.html">Services</a><a href="vehicles.html">Vehicles</a><a href="routes.html">Routes</a><a href="about.html">About</a></div>
+        <div><h4>Contact</h4><a href="tel:+61400000000" data-biz-tel data-biz="phone">0400 000 000</a><a href="mailto:hello@example.com.au" data-biz-mail data-biz="email">hello@example.com.au</a>
+          <a href="https://wa.me/61400000000" target="_blank" rel="noopener" data-biz-wa>WhatsApp us</a><a href="contact.html" data-biz="serviceArea">Sydney, NSW</a></div>
+        <div><h4>Policies</h4><a href="#">Terms and conditions</a><a href="#">Privacy policy</a><a href="#">Cancellation policy</a></div>
+      </div>
+      <div class="site-footer__bottom"><span>&copy; <span data-year></span> <span data-biz="name">Sydney Airport Transfers</span>. <span data-biz="abn">ABN to be added.</span></span><span>Social media links to be added</span></div>
+    </div>
+  </footer>
+  <a class="whatsapp-fab" data-biz-wa href="https://wa.me/61400000000?text=Hi%2C%20I%27d%20like%20to%20enquire%20about%20an%20airport%20transfer." target="_blank" rel="noopener" aria-label="Chat on WhatsApp"><svg class="icon" aria-hidden="true"><use href="assets/icons/sprite.svg#message-circle"/></svg></a>
+  <!-- site-footer:end -->
+  <script type="module" src="assets/js/pages/home.js"></script>
+</body>
+</html>
